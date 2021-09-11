@@ -19,7 +19,7 @@
         <span class="bottom-name">{{ name }}</span>
       </div>
       <div class="card-back shadowed">
-        <span v-if="!isImage">{{ value }}</span>
+        <span v-if="!isImage" :innerHTML="value"></span>
         <img :src="value" v-if="isImage">
       </div>
     </div>
@@ -100,12 +100,15 @@ onMounted(() => {});
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: .85em;
 
       img { 
         width: 100%;
         max-height: 100%;
         object-fit: contain;
       }
+
+      span { word-break: break-word; text-align: center;}
     }
 
     .card-front,
