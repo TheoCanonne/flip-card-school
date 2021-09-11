@@ -57,7 +57,13 @@ const cards = ref([
   {
     name: "Mood",
     values: [
-      image,
+      "../assets/moods/1.png",
+      "../assets/moods/2.png",
+      "../assets/moods/3.png",
+      "../assets/moods/4.png",
+      "../assets/moods/5.png",
+      "../assets/moods/6.png",
+      "../assets/moods/7.png",
     ],
     color: "#D00000",
     isImage: true,
