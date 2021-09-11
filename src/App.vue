@@ -20,8 +20,9 @@
 import { Emitter, EventType } from "mitt";
 import { inject, ref } from "vue";
 import Card from "./components/Card.vue";
-import image from './assets/moods/1.png';
+import images from "./utils/image";
 
+console.log(images);
 const eventBus: Emitter<Record<EventType, unknown>> = inject("eventBus");
 const cards = ref([
   {
@@ -56,15 +57,7 @@ const cards = ref([
   },
   {
     name: "Mood",
-    values: [
-      "assets/moods/1.png",
-      "assets/moods/2.png",
-      "assets/moods/3.png",
-      "assets/moods/4.png",
-      "assets/moods/5.png",
-      "assets/moods/6.png",
-      "assets/moods/7.png",
-    ],
+    values: images.moods,
     color: "#D00000",
     isImage: true,
   },
@@ -109,32 +102,13 @@ const cards = ref([
   },
   {
     name: "Country Nationality",
-    values: [
-      "assets/countries/france.png",
-      "assets/countries/australia.png",
-      "assets/countries/canada.png",
-      "assets/countries/england.png",
-      "assets/countries/gb.png",
-      "assets/countries/irland.png",
-      "assets/countries/scotland.png",
-      "assets/countries/us.png",
-      "assets/countries/walles.png",
-    ],
+    values: images.countries,
     color: "#9600DC",
     isImage: true,
   },
   {
     name: "Address",
-    values: [
-      "assets/addresses/1.png",
-      "assets/addresses/2.png",
-      "assets/addresses/3.png",
-      "assets/addresses/4.png",
-      "assets/addresses/5.png",
-      "assets/addresses/6.png",
-      "assets/addresses/7.png",
-      "assets/addresses/8.png",
-    ],
+    values: images.addresses,
     color: "#DE0093",
     isImage: true,
   },

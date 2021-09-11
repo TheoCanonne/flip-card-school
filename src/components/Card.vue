@@ -20,7 +20,7 @@
       </div>
       <div class="card-back shadowed">
         <span v-if="!isImage" :innerHTML="value"></span>
-        <img :src="image(value)" v-if="isImage">
+        <img :src="value" v-if="isImage">
       </div>
     </div>
   </div>
@@ -43,10 +43,6 @@ const value = ref(null);
 eventBus.on("resetCard", () => {
   isFlipped.value = false;
 });
-
-function image(value) {
-  return new URL(value, import.meta.url).href;
-}
 
 function toggleFlip() {
   isFlipped.value = !isFlipped.value;
