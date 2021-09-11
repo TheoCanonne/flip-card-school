@@ -20,6 +20,7 @@
 import { Emitter, EventType } from "mitt";
 import { inject, ref } from "vue";
 import Card from "./components/Card.vue";
+import image from './assets/moods/1.png';
 
 const eventBus: Emitter<Record<EventType, unknown>> = inject("eventBus");
 const cards = ref([
@@ -56,13 +57,7 @@ const cards = ref([
   {
     name: "Mood",
     values: [
-      "../assets/moods/1.png",
-      "../assets/moods/2.png",
-      "../assets/moods/3.png",
-      "../assets/moods/4.png",
-      "../assets/moods/5.png",
-      "../assets/moods/6.png",
-      "../assets/moods/7.png",
+      image,
     ],
     color: "#D00000",
     isImage: true,

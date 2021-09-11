@@ -45,7 +45,7 @@ eventBus.on("resetCard", () => {
 });
 
 function image(value) {
-  return new URL(value, import.meta.url).href;
+  return value;
 }
 
 function toggleFlip() {
