@@ -19,8 +19,8 @@
         <span class="bottom-name">{{ name }}</span>
       </div>
       <div class="card-back shadowed">
-        <span v-if="!isImage" :innerHTML="value"></span>
-        <img :src="value" v-if="isImage">
+        <span v-if="!isImage" :innerHTML="value" :class="{ big }"></span>
+        <img :src="value" v-if="isImage" />
       </div>
     </div>
   </div>
@@ -34,6 +34,7 @@ const props = defineProps({
   values: Array,
   color: String,
   isImage: Boolean,
+  big: { type: Boolean, required: false },
 });
 const eventBus: Emitter<Record<EventType, unknown>> = inject("eventBus");
 
@@ -100,15 +101,21 @@ onMounted(() => {});
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: .85em;
+      font-size: 0.85em;
 
-      img { 
+      img {
         width: 100%;
         max-height: 100%;
         object-fit: contain;
       }
 
-      span { word-break: break-word; text-align: center;}
+      span {
+        word-break: break-word;
+        text-align: center;
+        &.big {
+          font-size: 1.5em;
+        }
+      }
     }
 
     .card-front,
@@ -120,7 +127,6 @@ onMounted(() => {});
       backface-visibility: hidden;
       padding: 1em;
       border-radius: 5px;
-      
     }
   }
 }

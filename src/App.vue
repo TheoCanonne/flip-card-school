@@ -8,6 +8,7 @@
         :values="card.values"
         :color="card.color"
         :isImage="card.isImage"
+        :big="card.big"
       />
     </div>
     <div class="actions">
@@ -43,9 +44,8 @@ const cards = ref([
       "Sean",
       "Brad",
       "David",
-      "Micheal",
+      "Michael",
       "Bruce",
-      "Micheal",
       "Linda",
       "Eileen",
       "Fiona",
@@ -54,20 +54,23 @@ const cards = ref([
     ],
     color: "#F2A000",
     isImage: false,
+    big: true,
   },
   {
     name: "Mood",
     values: images.moods,
     color: "#D00000",
     isImage: true,
+    big: false,
   },
   {
     name: "Age",
     values: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
     color: "#00BA34",
     isImage: false,
+    big: true,
   },
-  /*{
+  {
     name: "Phone Number",
     values: [
       "731-8562",
@@ -83,24 +86,26 @@ const cards = ref([
     ],
     color: "#00B998",
     isImage: false,
+    big: true,
   },
   {
     name: "Email Address",
     values: [
-      "Phoebe.Cross18@<br>hotmail.ie",
-      "Micheal.Jones13@<br>hotmail.com",
-      "Mary.book15@<br>gmail.com",
-      "Fabien.englis20@<br>laposte.net",
-      "Peter.Scott17@<br>hotmail.ie",
-      "Kate.King19@<br>hotmail.au",
-      "Liza.Hudson18@<br>gmail.com",
-      "Andrew.Cook14@<br>hotmail.net",
-      "Rose.Smith16@<br>hotmail.au",
+      "Phoebe.Cross18<br>@hotmail.ie",
+      "Michael.Jones13<br>@hotmail.com",
+      "Mary.book15<br>@gmail.com",
+      "Fabien.english20<br>@laposte.net",
+      "Peter.Scott17<br>@hotmail.ie",
+      "Kate.King19<br>@hotmail.au",
+      "Liza.Hudson18<br>@gmail.com",
+      "Andrew.Cook14<br>@hotmail.net",
+      "Rose.Smith16<br>@hotmail.au",
     ],
     color: "#0097D8",
     isImage: false,
+    big: false,
   },
-  {
+  /*{
     name: "Country Nationality",
     values: images.countries,
     color: "#9600DC",
