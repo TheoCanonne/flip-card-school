@@ -17,19 +17,19 @@ import us from "../assets/countries/us.png";
 import walles from "../assets/countries/walles.png";
 
 
-import address1 from '../assets/addresses/1.png';
-import address2 from '../assets/addresses/2.png';
-import address3 from '../assets/addresses/3.png';
-import address4 from '../assets/addresses/4.png';
-import address5 from '../assets/addresses/5.png';
-import address6 from '../assets/addresses/6.png';
-import address7 from '../assets/addresses/7.png';
-import address8 from '../assets/addresses/8.png';
+import houses1 from '../assets/addresses/1.png';
+import houses2 from '../assets/addresses/2.png';
+import houses3 from '../assets/addresses/3.png';
+import houses4 from '../assets/addresses/4.png';
+import houses5 from '../assets/addresses/5.png';
+import houses6 from '../assets/addresses/6.png';
+import houses7 from '../assets/addresses/7.png';
+import houses8 from '../assets/addresses/8.png';
 
 
 console.log(mood1);
 export default {
   moods: [mood1, mood2, mood3, mood4, mood5, mood6, mood7],
   countries: [france, us,canada,australia,england,gb,irland,scotland,walles],
-  addresses: [address1, address2, address3, address4, address5, address6, address7, address8]
+  houses: [houses1, houses2, houses3, houses4, houses5, houses6, houses7, houses8]
 };

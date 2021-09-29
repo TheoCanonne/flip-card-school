@@ -113,8 +113,8 @@ const cards = ref([
     big: false,
   },
   {
-    name: "Address",
-    values: images.addresses,
+    name: "House",
+    values: images.houses,
     color: "#DE0093",
     isImage: true,
     big: false,
