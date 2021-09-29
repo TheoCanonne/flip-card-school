@@ -110,13 +110,15 @@ const cards = ref([
     values: images.countries,
     color: "#9600DC",
     isImage: true,
+    big: false,
   },
-  /*{
+  {
     name: "Address",
     values: images.addresses,
     color: "#DE0093",
     isImage: true,
-  },*/
+    big: false,
+  },
 ]);
 
 function resetFlipped() {
