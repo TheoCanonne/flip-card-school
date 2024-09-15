@@ -1,18 +1,22 @@
 <template>
   <div id="app">
+    <div class="header">
+      <button class="button shadowed" @click="opened = true">Administration</button>
+    </div>
+    <Administration :datas="cards" :opened="opened" @close="opened = false"/>
     <div class="card-container">
       <Card
-        v-for="card in cards"
-        :key="card.name"
-        :name="card.name"
-        :values="card.values"
-        :color="card.color"
-        :isImage="card.isImage"
-        :big="card.big"
+       v-for="card in cards.filter(e => e.visible)"
+      :key="card.name"
+      :name="card.name"
+      :values="card.values"
+      :color="card.color"
+      :isImage="card.isImage"
+      :big="card.big"
       />
     </div>
     <div class="actions">
-      <button class="reset-button shadowed" @click="resetFlipped">Reset</button>
+      <button class="button reset-button shadowed" @click="resetFlipped">Reset</button>
     </div>
   </div>
 </template>
@@ -21,6 +25,7 @@
 import { Emitter, EventType } from "mitt";
 import { inject, ref } from "vue";
 import Card from "./components/Card.vue";
+import Administration from "./components/Administration.vue";
 import images from "./utils/image";
 
 console.log(images);
@@ -55,6 +60,7 @@ const cards = ref([
     color: "#F2A000",
     isImage: false,
     big: true,
+    visible: true
   },
   {
     name: "Mood",
@@ -62,6 +68,7 @@ const cards = ref([
     color: "#D00000",
     isImage: true,
     big: false,
+    visible: true
   },
   {
     name: "Age",
@@ -69,57 +76,63 @@ const cards = ref([
     color: "#00BA34",
     isImage: false,
     big: true,
+    visible: true
   },
-  // {
-  //   name: "Phone Number",
-  //   values: [
-  //     "731-8562",
-  //     "06 31 38 79 46",
-  //     "859-251673",
-  //     "5794-2631",
-  //     "925-483417",
-  //     "07 19 27 65 34",
-  //     "690-8524",
-  //     "41-7329168",
-  //     "2037-1958",
-  //     "579-268157",
-  //   ],
-  //   color: "#00B998",
-  //   isImage: false,
-  //   big: true,
-  // },
-  // {
-  //   name: "Email Address",
-  //   values: [
-  //     "Phoebe.Cross18<br>@hotmail.ie",
-  //     "Michael.Jones13<br>@hotmail.com",
-  //     "Mary.book15<br>@gmail.com",
-  //     "Fabien.english20<br>@laposte.net",
-  //     "Peter.Scott17<br>@hotmail.ie",
-  //     "Kate.King19<br>@hotmail.au",
-  //     "Liza.Hudson18<br>@gmail.com",
-  //     "Andrew.Cook14<br>@hotmail.net",
-  //     "Rose.Smith16<br>@hotmail.au",
-  //   ],
-  //   color: "#0097D8",
-  //   isImage: false,
-  //   big: false,
-  // },
-  // {
-  //   name: "Country Nationality",
-  //   values: images.countries,
-  //   color: "#9600DC",
-  //   isImage: true,
-  //   big: false,
-  // },
-  // {
-  //   name: "House",
-  //   values: images.houses,
-  //   color: "#DE0093",
-  //   isImage: true,
-  //   big: false,
-  // },
+  {
+    name: "Phone Number",
+    values: [
+      "731-8562",
+      "06 31 38 79 46",
+      "859-251673",
+      "5794-2631",
+      "925-483417",
+      "07 19 27 65 34",
+      "690-8524",
+      "41-7329168",
+      "2037-1958",
+      "579-268157",
+    ],
+    color: "#00B998",
+    isImage: false,
+    big: true,
+    visible: true
+  },
+  {
+    name: "Email Address",
+    values: [
+      "Phoebe.Cross18<br>@hotmail.ie",
+      "Michael.Jones13<br>@hotmail.com",
+      "Mary.book15<br>@gmail.com",
+      "Fabien.english20<br>@laposte.net",
+      "Peter.Scott17<br>@hotmail.ie",
+      "Kate.King19<br>@hotmail.au",
+      "Liza.Hudson18<br>@gmail.com",
+      "Andrew.Cook14<br>@hotmail.net",
+      "Rose.Smith16<br>@hotmail.au",
+    ],
+    color: "#0097D8",
+    isImage: false,
+    big: false,
+    visible: true
+  },
+  {
+    name: "Country Nationality",
+    values: images.countries,
+    color: "#9600DC",
+    isImage: true,
+    big: false,
+    visible: true
+  },
+  {
+    name: "House",
+    values: images.houses,
+    color: "#DE0093",
+    isImage: true,
+    big: false,
+    visible: true
+  },
 ]);
+const opened = ref(false);
 
 function resetFlipped() {
   eventBus.emit("resetCard");
@@ -147,29 +160,39 @@ button {
 }
 </style>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 10px;
-  padding: 3em;
 }
 
 .actions {
   display: grid;
   place-items: center;
+  margin-top: 2rem;
 }
-.reset-button {
+.button {
   background-color: #0569c8;
   border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  color: white;
+  padding: 10px;
+}
+
+.reset-button {
+  text-transform: uppercase;
+  margin: auto;
+  font-size: 2.5em;
   width: 300px;
   height: 100px;
-  border-radius: 10px;
-  font-size: 2.5em;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: white;
-  margin: auto;
+}
+
+.header {
+  display:flex;
+  padding: 1rem;
+  justify-content: flex-end;
 }
 </style>
