@@ -135,10 +135,28 @@ const cards = ref([
     visible: true
   },
   {
-    name: "House",
-    values: images.houses,
+    name: "Address",
+    values: [
+      'Oxford Street / 48',
+      'Wall Street / 36',
+      'Washington Street / 51',
+      'Bond Street / 92',
+      'Baker Street / 23',
+      'New Street / 67',
+      'Queen Street / 72',
+      'Rose Street / 89',
+      'High Street / 99',
+      'Bank Street / 100',
+      'King Street / 13',
+      'Wood Street / 15',
+      'Fox Street / 37',
+      'Bell Street / 94',
+      'Bridge Street / 90',
+      'Park Street / 80',
+      'Main Street / 30'
+    ] ,
     color: "#DE0093",
-    isImage: true,
+    isImage: false,
     big: false,
     visible: true
   },
